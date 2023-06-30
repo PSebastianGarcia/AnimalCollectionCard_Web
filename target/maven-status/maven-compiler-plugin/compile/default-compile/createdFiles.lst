@@ -1,0 +1,6 @@
+com\mycompany\animalcollectioncard_web\resources\JakartaEE91Resource.class
+com\mycompany\animalcollectioncard_web\Model.class
+com\mycompany\animalcollectioncard_web\Animal.class
+com\mycompany\animalcollectioncard_web\ConnectionDB.class
+com\mycompany\animalcollectioncard_web\AppServlet.class
+com\mycompany\animalcollectioncard_web\JakartaRestConfiguration.class
