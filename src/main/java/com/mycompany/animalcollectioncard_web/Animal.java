@@ -10,22 +10,33 @@ import java.io.Serializable;
  *
  * @author seba3
  */
-public class Animal implements Serializable{
-     private String name;
-     private String genus;
-     private String species;
-     private String foto;
+public class Animal implements Serializable {
+
+    private int id;
+    private String name;
+    private String genus;
+    private String species;
+    private String foto;
 
     public Animal() {
     }
-     
-    public Animal(String name, String genus, String species, String foto) {
+
+    public Animal(int id, String name, String genus, String species, String foto) {
+        this.id = id;
         this.name = name;
         this.genus = genus;
         this.species = species;
         this.foto = foto;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getName() {
         return name;
     }
@@ -57,6 +68,5 @@ public class Animal implements Serializable{
     public void setFoto(String foto) {
         this.foto = foto;
     }
-    
-     
+
 }

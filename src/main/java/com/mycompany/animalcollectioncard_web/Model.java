@@ -48,7 +48,7 @@ public class Model {
            String species = rs.getString(4);
            String foto = rs.getString(5);
            
-           animals.add(new Animal(name, genus, species, foto));
+           animals.add(new Animal(id, name, genus, species, foto));
         }
         return animals;
     }

@@ -1,34 +1,101 @@
-const showButtonBodyCard = document.getElementById('show_button_body_card');
-const animalBodyCard = document.getElementsByClassName('animal_body_card');
+const cardButton = document.getElementById('show_button_body_card');
+const formatButton = document.getElementById('toggle_format_button');
+const animalBodyCards = document.getElementsByClassName('animal_body_card');
+const animalTable = document.getElementById('animal_table');
+const cardsContainer = document.getElementById('cards_container');
 
-const cardBody = {
+const formatButtonObject = {
 
-    body: false,
+    card: false,
 
-    visibleBody: function () {
-        this.body = !this.body;
+    isCard: function () {
+        this.card = !this.card;
     }
 };
 
-function visibility() {
+const cardButtonObject = {
 
-    toggleVisibilityList(animalBodyCard);
-    changeButton();
+    visible: false,
+
+    isVisible: function () {
+        this.visible = !this.visible;
+    }
+};
+
+const cardBody = {
+
+    show: false,
+
+    isShow: function () {
+        this.show = !this.show;
+    }
+};
+
+formatButton.onclick = toggleFormat;
+
+function toggleFormat() {
+    toggleButtonSection();
+    toggleFormatInfo();
 }
 
-function changeButton() {
+function toggleButtonSection() {
 
-    cardBody.visibleBody();
-    if (cardBody.body) {
-        showButtonBodyCard.innerHTML = "Ocultar detalles";
+    toggleCardButtonVisibility();
+    toggleNameFormatButton();
+}
+
+function toggleCardButtonVisibility() {
+
+    if (!cardButtonObject.visible) {
+        turnVisible(cardButton);
     } else {
-        showButtonBodyCard.innerHTML = "Mostrar detalles";
-    }    
+        turnInvisible(cardButton);
+    }
+    cardButtonObject.isVisible();
+}
+
+function toggleNameFormatButton() {
+
+    if (!formatButtonObject.card) {
+        formatButton.innerHTML = "Formato Tabla";
+    } else {
+        formatButton.innerHTML = "Formato Carta";
+    }
+    formatButtonObject.isCard();
+}
+
+function toggleFormatInfo() {
+
+    if (formatButtonObject.card) {
+        turnInvisible(animalTable);
+        turnVisible(cardsContainer);
+    } else {
+        turnInvisible(cardsContainer);
+        turnVisible(animalTable);
+    }
+}
+
+cardButton.onclick = toggleBodyCardVisibility;
+
+function toggleBodyCardVisibility() {
+
+    toggleNameCardButton();
+    toggleVisibilityList(animalBodyCards);
+    cardBody.isShow();
+}
+
+function toggleNameCardButton() {
+    
+    if (!cardBody.show) {
+        cardButton.innerHTML = "Ocultar detalles";
+    } else {
+        cardButton.innerHTML = "Mostrar detalles";
+    }
 }
 
 function toggleVisibilityList(list) {
 
-    if (!cardBody.body) {
+    if (!cardBody.show) {
         for (let i = 0; i < list.length; i++) {
             turnVisible(list[i]);
         }
@@ -39,31 +106,120 @@ function toggleVisibilityList(list) {
     }
 }
 
-//function turnVisibleFile() {
-//    turnVisible(file);
-//    turnInvisibleButton(createTemplateFileButton);
-//}
-//function turnInvisibleFile() {
-//    turnInvisible(file);
-//    turnVisibleButton(createTemplateFileButton);
-//}
-//
-//function turnVisibleButton(button) {
-//    turnVisible(button);
-//}
-//function turnInvisibleButton(button) {
-//    turnInvisible(button);
-//}
-
 function turnVisible(element) {
 
-    element.style.display = "block";
+    element.classList.remove("disp_none");
 }
+
 function turnInvisible(element) {
 
-    element.style.display = "none";
+    element.classList.add("disp_none");
 }
 
-showButtonBodyCard.onclick = visibility;
-//cancelCreationFileButton.onclick = turnInvisibleFile;
+
+
+
+
+
+
+
+
+//function format() {
+//
+//    if (!toggleButton.card) {
+//        changeButtonSection();
+//    }
+//    changeButton();
+//}
+//
+//function changeButtonSection() {
+//
+//    turnVisible(cardButton);
+//    changeNameToggleButton();
+//}
+//
+//function changeNameToggleButton() {
+//
+//    changeButton(toggleButton);
+//
+////    if (cardBody.body) {
+////        cardButton.innerHTML = "Ocultar detalles";
+////    } else {
+////        cardButton.innerHTML = "Mostrar detalles";
+////    }
+//}
+//
+//function visibility() {
+//
+//    if (!cardBody.show) {
+//        changeToCard();
+//    } else {
+//        toggleVisibilityList(animalBodyCards);
+//    }
+//    changeButton();
+//}
+//
+//function changeToCard() {
+//    turnInvisible(animalTable);
+//    turnVisible(cardsContainer);
+//    cardBody.showCardFormat();
+//}
+//
+//function changeButton(element) {
+//
+//    if (element.equals(toggleButton)) {
+//        toggleNameToggleButton(element);
+//    } else {
+//
+//    }
+//
+//
+////    if (cardBody.show && !cardBody.body) {
+////        toggleCardNameButton();
+////    } else {
+////        
+////    }   
+//}
+//
+//function toggleNameToggleButton(element) {
+//
+//    if (toggleButton.card) {
+//        element.innerHTML = "Formato Tabla";
+//    } else {
+//        element.innerHTML = "Formato Carta";
+//    }
+//}
+//
+//function toggleCardNameButton() {
+//    cardBody.visibleBody();
+//    if (cardBody.body) {
+//        cardButton.innerHTML = "Ocultar detalles";
+//    } else {
+//        cardButton.innerHTML = "Mostrar detalles";
+//    }
+//}
+//
+//
+//
+////function turnVisibleFile() {
+////    turnVisible(file);
+////    turnInvisibleButton(createTemplateFileButton);
+////}
+////function turnInvisibleFile() {
+////    turnInvisible(file);
+////    turnVisibleButton(createTemplateFileButton);
+////}
+////
+////function turnVisibleButton(button) {
+////    turnVisible(button);
+////}
+////function turnInvisibleButton(button) {
+////    turnInvisible(button);
+////}
+//
+//
+//
+//toggleFormatButton.onclick = format;
+//cardButton.onclick = visibility;
+////cancelCreationFileButton.onclick = turnInvisibleFile;
 
