@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.animalcollectioncard_web.User;
 
 import jakarta.mail.Authenticator;
@@ -14,14 +10,10 @@ import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import java.util.Properties;
 
-/**
- *
- * @author seba3
- */
 public class MailModel {
 
     private final String SENDER_MAIL = "pc.sebastiangarcia@gmail.com";
-    private final String SENDER_PASS = "mygestttgmpxptpq";
+    private final String SENDER_PASS = "";
     private String mailTo;
     private final String SUBJECT = "E-mail de confirmación";
     private String content;
@@ -65,12 +57,10 @@ public class MailModel {
             mTransport.sendMessage(mMail, mMail.getRecipients(Message.RecipientType.TO));
             mTransport.close();
 
-//            Transport.send(mMail);
-
         } catch (MessagingException ex) {
-            ex.printStackTrace(); // Imprime la excepción en la consola para depuración
-            throw new RuntimeException("No se pudo enviar el mail para confirmación", ex);
-//            throw new RuntimeException("No se pudo enviar el mail para confirmación", ex);
+            ex.printStackTrace();
+            System.out.println("No se pudo enviar el mail para confirmación " + ex.getMessage());
+            throw new RuntimeException("Error interno", ex);
         }
     }
 }

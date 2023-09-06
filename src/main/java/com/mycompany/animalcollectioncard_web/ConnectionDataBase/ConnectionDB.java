@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.animalcollectioncard_web.ConnectionDataBase;
 
 import java.sql.Connection;
@@ -13,7 +9,7 @@ public class ConnectionDB {
 
     private static final String DDBB_URL = "jdbc:mysql://localhost:3306/animalcollectionweb?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "BaseDeDatosSeba312";
+    private static final String PASSWORD = "";
     private static BasicDataSource dataSource;
 
     private ConnectionDB() {

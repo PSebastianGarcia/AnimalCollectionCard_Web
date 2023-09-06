@@ -20,7 +20,7 @@ public class LogInServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
         if (action.equals("logOut")) {
-            session.removeAttribute("user");
+            session.removeAttribute("pUser");
             session.invalidate();
             resp.sendRedirect("index.jsp");
         }

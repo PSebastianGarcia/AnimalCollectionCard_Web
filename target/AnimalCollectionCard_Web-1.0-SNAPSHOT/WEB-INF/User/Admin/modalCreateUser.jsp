@@ -5,7 +5,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Create User</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="formCreateUser" action="${pageContext.request.contextPath}/SignIn?id=${idAdmin}"
+            <form id="formCreateUser" action="${pageContext.request.contextPath}/signIn?id=${idAdmin}"
                   method="post" class="was-validated">
                 <div class="modal-body">
                     <div class="row">
